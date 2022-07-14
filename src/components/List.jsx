@@ -1,16 +1,15 @@
 import "./List.css"
+import { BsFillTrashFill } from "react-icons"
 
 
-const List = () => {
+const List = ({item}) => {
   return (
     <div>
+        <li>{item.toUpperCase()}</li>
+        <BsFillTrashFill /> 
         
-
-
-
-
-
     </div>
+
   )
 }
 
