@@ -29,6 +29,7 @@ function Item() {
                     className="form-control p-2"
                     placeholder="Add your item please .."
                     aria-describedby="button-addon2" 
+                    value={item}
                     onChange={(e) => setItem(e.target.value)}/>
                 <button
                     className="btn btn-outline-secondary"
