@@ -1,16 +1,17 @@
-import "./List.css"
+import "./List.css";
 import { BsFillTrashFill } from "react-icons/bs";
 
-
-const List = ({item}) => {
+const List = ({ newItem }) => {
   return (
     <div>
-        <li>{item.toUpperCase()}</li> <BsFillTrashFill /> 
-        
-        
+      <ul>
+        {newItem.map((itm) => {
+          console.log(itm);
+          return <li key={itm.id}>{itm.value}</li>;
+        })}
+      </ul>
     </div>
+  );
+};
 
-  )
-}
-
-export default List
+export default List;
