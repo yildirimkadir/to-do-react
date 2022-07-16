@@ -7,16 +7,20 @@ function Item() {
   const [item, setItem] = useState("");
   const [newItem, setNewItem] = useState([]);
 
-  //   const [show, setShow] = useState(false);
+  const [show, setShow] = useState();
+  //   const [inputRef, setInputRef] = useFocus();
 
   const handleClick = () => {
-    if (!item) return alert("bos");
+    if (!item) return alert("Please enter a item");
+
     const itemStück = {
       id: Math.floor(Math.random() * 500),
       value: item,
     };
+    console.log(itemStück);
     setNewItem((oldItems) => [...oldItems, itemStück]);
     setItem("");
+    setShow(true);
   };
 
   const handleKeyDown = (e) => {
@@ -34,7 +38,9 @@ function Item() {
           className="form-control p-2"
           placeholder="Add your item please .."
           aria-describedby="button-addon2"
+          autoFocus
           value={item}
+          //   ref={inputRef}
           onChange={(e) => setItem(e.target.value)}
           onKeyDown={handleKeyDown}
         />
@@ -47,7 +53,15 @@ function Item() {
           Add
         </button>
       </div>
-      {<List item={item} newItem={newItem} setNewItem={setNewItem} />}
+      {show && (
+        <List
+          item={item}
+          newItem={newItem}
+          setNewItem={setNewItem}
+          show={show}
+          setShow={setShow}
+        />
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import "./List.css";
 import { BsFillTrashFill } from "react-icons/bs";
 
-const List = ({ newItem, setNewItem }) => {
+const List = ({ newItem, setNewItem, show, setShow }) => {
   const handleRemove = (id) => {
     const newList = newItem.filter((item) => item.id !== id);
     setNewItem(newList);
